@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "Doris"
+version = "0.1.0"
+description = "a friend to help your journal the right way"
+authors = ["Somtochukwu N Leroy <wave@sommmtoooo.me>"]
+
+[tool.poetry.scripts]
+mycli = "app.doris:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
