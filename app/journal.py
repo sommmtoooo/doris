@@ -9,8 +9,12 @@ def get_today_journal():
     today = datetime.today().strftime("%Y-%m-%d") + ".md"
     return JOURNALS_DIR / today
 
-def open_journal():
-    """Create or open today's journal entry."""
+def open_journal(date:str = None):
+    """Open a specific journal entry, defaulting to today's date if not provided."""
+
+    if not date:
+        date = datetime.now().strftime("%Y-%m-%d")
+
     config = load_config()
     editor = config["editor"]
 
@@ -22,7 +26,7 @@ def open_journal():
 
     os.system(f"{editor} {journal_path}")
 
-def list_journals():
+def get_journals():
     """List all journal entries."""
     if not JOURNALS_DIR.exists():
         typer.echo("No journal entries found.")

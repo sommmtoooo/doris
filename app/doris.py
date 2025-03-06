@@ -1,7 +1,7 @@
 import typer
 import config
-from journal import open_journal, list_journals
-from notes import create_note, list_notes
+from journal import open_journal, get_journals
+from notes import create_note, get_notes
 from search import search
 
 app = typer.Typer()
@@ -33,12 +33,17 @@ def note(title: str):
 @app.command()
 def list_journals():
     """List all journal entries."""
-    list_journals()
+    get_journals()
+
+@app.command()
+def delete_journal(date: str):
+    """Delete a specific journal entry by date (YYYY-MM-DD)."""
+    delete_journal(date)
 
 @app.command()
 def list_notes():
     """List all notes."""
-    list_notes()
+    get_notes()
 
 @app.command()
 def search_notes(keyword: str):

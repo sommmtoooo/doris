@@ -16,7 +16,7 @@ def create_note(title: str):
 
     os.system(f"{editor} {note_path}")
 
-def list_notes():
+def get_notes():
     """List all notes."""
     if not NOTES_DIR.exists():
         typer.echo("No notes found.")
