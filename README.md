@@ -5,10 +5,15 @@ Doris is a **simple, fast, and flexible journal & note-taking tool** for your te
 It helps you manage **daily journals** and **quick notes** using your favorite text editor (**Vim, Nano, Emacs, etc.**).
 
 ✨ **Why Doris?**
+
 ✔ **Minimalist & distraction-free**
+
 ✔ **Uses your preferred editor** (Vim, Nano, Emacs, etc.)
+
 ✔ **Fast & lightweight** (CLI-first, no bloat)
+
 ✔ **Easy search & organization**
+
 ✔ **Fully open-source & customizable**
 ---
 
