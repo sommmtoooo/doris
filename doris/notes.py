@@ -1,7 +1,8 @@
 import os
 from pathlib import Path
 import typer
-from config import NOTES_DIR, load_config
+from .config import NOTES_DIR, load_config
+
 
 def create_note(title: str):
     """Create a quick note."""
@@ -15,6 +16,7 @@ def create_note(title: str):
         typer.echo(f"New note created: {note_path}")
 
     os.system(f"{editor} {note_path}")
+
 
 def get_notes():
     """List all notes."""

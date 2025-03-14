@@ -7,9 +7,8 @@ CONFIG_FILE = CONFIG_DIR / "config.json"
 NOTES_DIR = CONFIG_DIR / "notes"
 JOURNALS_DIR = CONFIG_DIR / "journals"
 
-DEFAULT_CONFIG = {
-    "editor": os.getenv("EDITOR", "vim")
-}
+DEFAULT_CONFIG = {"editor": os.getenv("EDITOR", "vim")}
+
 
 def ensure_setup():
     """Ensure Doris directories and config file exist."""
@@ -20,12 +19,14 @@ def ensure_setup():
     if not CONFIG_FILE.exists():
         save_config(DEFAULT_CONFIG)
 
+
 def load_config():
     """Load the user configuration."""
     if not CONFIG_FILE.exists():
         save_config(DEFAULT_CONFIG)
     with open(CONFIG_FILE, "r") as f:
         return json.load(f)
+
 
 def save_config(config):
     """Save the user configuration."""

@@ -10,3 +10,111 @@ mycli = "app.doris:app"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+
+# content below this line added by briefcase convert
+# This project was generated with 0.3.22 using template: https://github.com/beeware/briefcase-template@v0.3.22
+[tool.briefcase]
+project_name = "Doris"
+bundle = "com.github"
+version = "0.0.1"
+url = "https://github.com/sommmtoooo/doris"
+license.file = "LICENSE"
+author = "Somtochukwu N Leroy"
+author_email = "wave@sommmtoooo.me"
+
+[tool.briefcase.app.doris]
+formal_name = "Doris"
+description = "Your journal buddy"
+long_description = """More details about the app should go here.
+"""
+sources = [
+    "doris",
+]
+test_sources = [
+    "tests",
+]
+console_app = true
+
+requires = [
+    # Add your cross-platform app requirements here
+]
+test_requires = [
+    # Add your cross-platform test requirements here
+]
+
+[tool.briefcase.app.doris.macOS]
+universal_build = true
+requires = [
+    # Add your macOS-specific app requirements here
+]
+
+[tool.briefcase.app.doris.linux]
+requires = [
+    # Add your Linux-specific app requirements here
+]
+
+[tool.briefcase.app.doris.linux.system.debian]
+system_requires = [
+    # Add any system packages needed at build the app here
+]
+
+system_runtime_requires = [
+    # Add any system packages needed at runtime here
+]
+
+[tool.briefcase.app.doris.linux.system.rhel]
+system_requires = [
+    # Add any system packages needed at build the app here
+]
+
+system_runtime_requires = [
+    # Add any system packages needed at runtime here
+]
+
+[tool.briefcase.app.doris.linux.system.suse]
+system_requires = [
+    # Add any system packages needed at build the app here
+]
+
+system_runtime_requires = [
+    # Add any system packages needed at runtime here
+]
+
+[tool.briefcase.app.doris.linux.system.arch]
+system_requires = [
+    # Add any system packages needed at build the app here
+]
+
+system_runtime_requires = [
+    # Add any system packages needed at runtime here
+]
+
+[tool.briefcase.app.doris.linux.flatpak]
+flatpak_runtime = "org.freedesktop.Platform"
+flatpak_runtime_version = "24.08"
+flatpak_sdk = "org.freedesktop.Sdk"
+
+[tool.briefcase.app.doris.windows]
+requires = [
+    # Add your Windows-specific app requirements here
+]
+
+# Mobile deployments
+[tool.briefcase.app.doris.iOS]
+requires = [
+    # Add your iOS-specific app requirements here
+]
+
+[tool.briefcase.app.doris.android]
+requires = [
+    # Add your Android-specific app requirements here
+]
+
+# Web deployments
+[tool.briefcase.app.doris.web]
+requires = [
+    # Add your web-specific app requirements here
+]
+

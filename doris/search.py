@@ -1,22 +1,24 @@
 import typer
 from pathlib import Path
-from config import JOURNALS_DIR, NOTES_DIR
+from .config import JOURNALS_DIR, NOTES_DIR
+
 
 def search_files(keyword: str, directory: Path):
     """Search for a keyword in all files within a directory."""
     results = []
-    
+
     if not directory.exists():
         return results
-    
+
     for file in directory.iterdir():
         if file.is_file():
             with open(file, "r", encoding="utf-8") as f:
                 content = f.read()
                 if keyword.lower() in content.lower():
                     results.append(file.name)
-    
+
     return results
+
 
 def search(keyword: str):
     """Search both journals and notes for a given keyword."""

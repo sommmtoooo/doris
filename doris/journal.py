@@ -2,14 +2,16 @@ import os
 from datetime import datetime
 from pathlib import Path
 import typer
-from config import JOURNALS_DIR, load_config
+from .config import JOURNALS_DIR, load_config
+
 
 def get_today_journal():
     """Get the path for today's journal entry."""
     today = datetime.today().strftime("%Y-%m-%d") + ".md"
     return JOURNALS_DIR / today
 
-def open_journal(date:str = None):
+
+def open_journal(date: str = None):
     """Open a specific journal entry, defaulting to today's date if not provided."""
 
     if not date:
@@ -19,12 +21,13 @@ def open_journal(date:str = None):
     editor = config["editor"]
 
     journal_path = get_today_journal()
-    
+
     if not journal_path.exists():
         journal_path.touch()
         typer.echo(f"New journal entry created: {journal_path}")
 
     os.system(f"{editor} {journal_path}")
+
 
 def get_journals():
     """List all journal entries."""
