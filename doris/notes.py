@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 import typer
 from .config import NOTES_DIR, load_config
 
@@ -27,3 +26,14 @@ def get_notes():
     notes = sorted(NOTES_DIR.iterdir(), reverse=True)
     for note in notes:
         typer.echo(note.name)
+
+
+def delete_note(title: str):
+    """Delete a specific note by title."""
+    filename = os.path.join(NOTES_DIR, f"{title}.md")
+
+    if os.path.exists(filename):
+        os.remove(filename)
+        typer.echo(f"Deleted note: {title}")
+    else:
+        typer.echo(f"No note found with title '{title}'.")

@@ -5,6 +5,13 @@ import typer
 from .config import JOURNALS_DIR, load_config
 
 
+def get_journal_path(date: str = None) -> Path:
+    """Get the path for a journal entry on a specific date."""
+    if not date:
+        date = datetime.today().strftime("%Y-%m-%d")
+    return JOURNALS_DIR / f"{date}.md"
+
+
 def get_today_journal():
     """Get the path for today's journal entry."""
     today = datetime.today().strftime("%Y-%m-%d") + ".md"
@@ -20,7 +27,7 @@ def open_journal(date: str = None):
     config = load_config()
     editor = config["editor"]
 
-    journal_path = get_today_journal()
+    journal_path = get_journal_path(date)
 
     if not journal_path.exists():
         journal_path.touch()
@@ -38,3 +45,15 @@ def get_journals():
     journals = sorted(JOURNALS_DIR.iterdir(), reverse=True)
     for journal in journals:
         typer.echo(journal.name)
+
+
+def delete_journal(date: str):
+    """Delete a specific journal entry by date."""
+
+    journal_path = get_journal_path(date)
+
+    if journal_path.exists():
+        journal_path.unlink()
+        typer.echo(f"Deleted journal entry for {date}.")
+    else:
+        typer.echo(f"No journal entry found for {date}.")

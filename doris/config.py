@@ -1,5 +1,6 @@
 import os
 import json
+import subprocess
 from pathlib import Path
 
 CONFIG_DIR = Path.home() / ".doris"
@@ -32,3 +33,14 @@ def save_config(config):
     """Save the user configuration."""
     with open(CONFIG_FILE, "w") as f:
         json.dump(config, f, indent=4)
+
+
+def edit_config():
+    """Open the config file in the user's preferred editor."""
+    config_path = os.path.expanduser("~/.doris/config.json")
+
+    if not os.path.exists(config_path):
+        save_config({})
+
+    editor = load_config().get("editor", "nano")
+    subprocess.run([editor, config_path], check=True)

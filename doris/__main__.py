@@ -7,6 +7,7 @@ from .search import search
 app = typer.Typer()
 
 
+# Initialization and configuration functions
 @app.command()
 def init():
     """Initialize Doris by setting up the necessary directories."""
@@ -24,15 +25,18 @@ def set_editor(editor: str):
 
 
 @app.command()
-def journal():
-    """Create or open today's journal entry."""
-    open_journal()
+def edit_config():
+    """Open the Doris configuration file in the preferred editor."""
+    from .config import edit_config
+
+    edit_config()
 
 
+# Journal-related functions
 @app.command()
-def note(title: str):
-    """Create a quick note."""
-    create_note(title)
+def journal(date: str):
+    """Create or open a journal entry for today or a specific date."""
+    open_journal(date)
 
 
 @app.command()
@@ -44,13 +48,30 @@ def list_journals():
 @app.command()
 def delete_journal(date: str):
     """Delete a specific journal entry by date (YYYY-MM-DD)."""
+    from .journal import delete_journal
+
     delete_journal(date)
+
+
+# Note-related functions
+@app.command()
+def note(title: str):
+    """Create a quick note."""
+    create_note(title)
 
 
 @app.command()
 def list_notes():
     """List all notes."""
     get_notes()
+
+
+@app.command()
+def delete_note(title: str):
+    """Delete a specific note by title."""
+    from .notes import delete_note
+
+    delete_note(title)
 
 
 @app.command()

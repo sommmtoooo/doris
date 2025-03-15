@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "Doris"
 version = "0.1.0"
-description = "a friend to help your journal the right way"
+description = "Your personal journal buddy"
 authors = ["Somtochukwu N Leroy <wave@sommmtoooo.me>"]
 
 [tool.poetry.scripts]
@@ -26,8 +26,10 @@ author_email = "wave@sommmtoooo.me"
 
 [tool.briefcase.app.doris]
 formal_name = "Doris"
-description = "Your journal buddy"
-long_description = """More details about the app should go here.
+description = "Your personal journal buddy"
+long_description = """
+Doris is a comforting and intuitive personal journal buddy designed to help you reflect, express, and document your thoughts and experiences. Named in honor of my late mother, Doris embodies warmth and support, providing a safe space for your innermost feelings. Whether you're jotting down daily reflections, capturing moments of joy, or processing challenges, Doris is here to accompany you on your journey.
+Embrace the power of writing and let Doris be your trusted companion in navigating life's ups and downs.
 """
 sources = [
     "doris",
@@ -38,7 +40,7 @@ test_sources = [
 console_app = true
 
 requires = [
-    # Add your cross-platform app requirements here
+    "typer==0.15.2"
 ]
 test_requires = [
     # Add your cross-platform test requirements here
