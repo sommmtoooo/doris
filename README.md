@@ -29,17 +29,20 @@ It helps you manage **daily journals** and **quick notes** using your favorite t
 ## 📦 Installation
 
 ### **🔢 Run Doris from an Executable**
+
 Check the `assets/` folder for pre-built executables. Download the latest version for your OS and run it directly.
 
 ### **♻ Build & Run Locally**
 
 #### **1. Clone the Repository**
+
 ```bash
 git clone https://github.com/sommmtoooo/doris.git
 cd doris
 ```
 
 #### **2. Set Up Virtual Environment & Install Dependencies**
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # (On Windows use: venv\Scripts\activate)
@@ -47,6 +50,7 @@ pip install -r requirements.txt
 ```
 
 #### **3. Run Doris Locally**
+
 ```bash
 python doris.py --help
 ```
@@ -54,11 +58,13 @@ python doris.py --help
 #### **4. Build & Package Doris Locally**
 
 - **Run in development mode:**
+
 ```bash
 briefcase dev
 ```
 
 - **Build an executable:**
+
 ```bash
 briefcase package
 ```
@@ -68,6 +74,7 @@ briefcase package
 ## 🛠 Usage
 
 ### **📄 Journal Management**
+
 ```bash
 doris journal         # Open today's journal
 doris list-journals   # List all journal entries
@@ -75,6 +82,7 @@ doris delete-journal 2024-03-05  # Delete a journal entry by date
 ```
 
 ### **📝 Note-Taking**
+
 ```bash
 doris note "Meeting"  # Create a note titled 'Meeting'
 doris list-notes      # List all notes
@@ -82,12 +90,15 @@ doris delete-note "Meeting"  # Delete a specific note
 ```
 
 ### **🔍 Search**
+
 ```bash
 doris search "project"  # Find occurrences of 'project' in notes & journals
 ```
 
 ### **⚙ Set Preferred Editor**
+
 ```bash
+doris open vim  # Opens doris folder using preferred editor
 doris set-editor vim  # Use Vim as the default editor
 ```
 

@@ -3,6 +3,8 @@ import doris.config as config
 from .journal import open_journal, get_journals
 from .notes import create_note, get_notes
 from .search import search
+import os
+import platform
 
 app = typer.Typer()
 
@@ -78,6 +80,25 @@ def delete_note(title: str):
 def search_notes(keyword: str):
     """Search for a keyword in notes and journals."""
     search(keyword)
+
+
+@app.command()
+def open():
+    """Open the Doris directory."""
+    from .config import CONFIG_DIR, load_config
+
+    config = load_config()
+    editor = config["editor"]
+
+    if editor.lower() == "nano":
+        if platform.system() == "Darwin":
+            os.system(f"open {CONFIG_DIR}")
+        elif platform.system() == "Windows":
+            os.system(f"explorer {CONFIG_DIR}")
+        else:
+            os.system(f"xdg-open {CONFIG_DIR}")
+    else:
+        os.system(f"{editor} {CONFIG_DIR}")
 
 
 if __name__ == "__main__":
